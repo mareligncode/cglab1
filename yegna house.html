@@ -1,0 +1,49 @@
+<canvas id="houseCanvas"></canvas>
+<script>
+var canvas = document.getElementById("houseCanvas");
+var ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function drawHouse() {
+    // Draw the house body
+    ctx.fillStyle = "#8B4513"; // brown color for the house body
+    ctx.fillRect(200, 200, 300, 300); // x, y, width, height
+
+    // Draw the roof
+    ctx.fillStyle = "#A52A2A"; // red-brown color for the roof
+    ctx.beginPath();
+    ctx.moveTo(150, 200); // left point of the triangle
+    ctx.lineTo(550, 200); // right point of the triangle
+    ctx.lineTo(350, 50); // top point of the triangle
+    ctx.closePath();
+    ctx.fill();
+
+    // Draw the door
+    ctx.fillStyle = "#000000"; // black color for the door
+    ctx.fillRect(330, 350, 40, 150); // x, y, width, height
+
+    // Draw windows
+    ctx.fillStyle = "#FFFFFF"; // white color for the windows
+    ctx.fillRect(250, 250, 50, 50); // x, y, width, height (left window)
+    ctx.fillRect(400, 250, 50, 50); // x, y, width, height (right window)
+    
+    // Draw chimney
+    ctx.fillStyle = "#8B4513"; // brown color for the chimney
+    ctx.fillRect(220, 100, 40, 100); // x, y, width, height (move to the left side of the house)
+
+    // Draw smoke
+    ctx.fillStyle = "#D3D3D3"; // light gray color for smoke
+    ctx.beginPath();
+    ctx.arc(240, 70, 20, 0, Math.PI * 2, true); // x, y, radius, start angle, end angle
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(260, 50, 20, 0, Math.PI * 2, true); // x, y, radius, start angle, end angle
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(280, 30, 20, 0, Math.PI * 2, true); // x, y, radius, start angle, end angle
+    ctx.fill();
+}
+
+drawHouse();
+</script>
